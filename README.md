@@ -51,5 +51,82 @@ Una vez extraída, esta información se someterá a un proceso de clasificación
 ##### Descripción del Diseño 
 
 **1. PDFProcessor:** Encargada de gestionar la apertura, lectura y procesamiento de archivos PDF. Esta clase es responsable de la extracción de texto e imágenes, detectando entidades específicas y guardando la información extraída en formatos organizados.
-**2. ImageProcessor: **Esta clase se especializa en el procesamiento de imágenes extraídas del PDF. Implementa técnicas de procesamiento de imágenes para optimizar la calidad y legibilidad de las imágenes antes de pasarlas a OCR.
+**2. ImageProcessor:** Esta clase se especializa en el procesamiento de imágenes extraídas del PDF. Implementa técnicas de procesamiento de imágenes para optimizar la calidad y legibilidad de las imágenes antes de pasarlas a OCR.
 Las clases están diseñadas para ser extensibles y modificables, permitiendo adaptar el software a diferentes tipos de documentos PDF y requisitos de extracción de datos.
+
+------------
+
+##### Librerias que usé y la razón
+
+- #### PyMuPDF:
+Esta librería se utiliza para interactuar con archivos PDF. Ofrece funcionalidades como la apertura de documentos PDF, la extracción de texto e imágenes de las páginas, y otras manipulaciones de documentos PDF.
+La eligí por su eficiencia y amplio soporte para diferentes aspectos del procesamiento de PDFs.
+
+- #### Pillow (PIL):
+Pillow es una librería de procesamiento de imágenes en Python. En este script, se utiliza para manejar y modificar las imágenes extraídas de los documentos PDF, especialmente para prepararlas para el reconocimiento óptico de caracteres (OCR).
+Es una librería ampliamente utilizada y mantenida con un conjunto rico de funcionalidades para el procesamiento de imágenes, lo que la hace ideal para este proyecto.
+
+- #### Pytesseract:
+Pytesseract es un envoltorio de Python para Tesseract OCR. Permite la integración de la capacidad de OCR de Tesseract en aplicaciones Python, convirtiendo imágenes en texto.
+Tesseract es uno de los motores de OCR más precisos y populares disponibles, y pytesseract facilita su uso en aplicaciones Python
+------------
+
+##### Ejemplos de Código:
+
+#### Inicialización del Procesador de PDFs:
+
+```python
+processor = PDFProcessor(pdf_path, image_folder, text_output_folder, names_output_folder)
+processor.process_pdf()
+
+```
+Esta sección del código inicializa la clase PDFProcessor con las rutas adecuadas y comienza el procesamiento del archivo PDF.
+
+------------
+
+#### Clase PDFProcessor:
+```python
+class PDFProcessor:
+    def __init__(self, pdf_path, image_folder, text_output_folder, names_output_folder):
+        # Constructor de la clase con inicialización de rutas y creación de directorios
+
+```
+La clase "PDFProcessor" se encarga de abrir el PDF, extraer texto e imágenes, y guardar estos datos.
+
+------------
+
+#### Extracción y Guardado de Texto:
+```python
+def _extract_and_save_text(self, page, doc, page_num):
+    if self._page_has_images(page):
+        for img_index, img in enumerate(page.get_images(full=True)):
+            # Proceso de extracción de texto de la imagen y guardado
+
+```
+Este método de la clase "PDFProcessor" muestra cómo se extrae y guarda el texto de cada página que contiene imágenes
+
+------------
+
+
+#### Procesamiento de Imágenes para OCR:
+```python
+class ImageProcessor:
+    @staticmethod
+    def process_image_for_ocr(image):
+        return image.convert('L')
+
+```
+"ImageProcessor" procesa las imágenes extrayéndolas del PDF y convirtiéndolas en un formato adecuado para el OCR.
+
+------------
+
+#### Configuración de Tesseract OCR:
+```python
+try:
+    pytesseract.pytesseract.tesseract_cmd = r'la_ruta_a_tesseract.exe'
+except Exception as e:
+    print(f"Error al configurar Tesseract: {e}")
+
+```
+Este fragmento muestra cómo configurar la ruta del ejecutable de Tesseract OCR.
+
