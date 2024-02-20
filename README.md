@@ -131,3 +131,15 @@ except Exception as e:
 ```
 Este fragmento muestra cómo configurar la ruta del ejecutable de Tesseract OCR.
 
+------------
+## Futura Integración con Base de Datos
+
+### Objetivo de la Expansión
+En el futuro, planeo expandir este procesador de PDFs con OCR para integrar una base de datos. Esta mejora permitirá almacenar y organizar de manera eficiente los datos extraídos de los documentos PDF, como nombres, CURPs, y detalles de identificaciones oficiales. La integración de una base de datos facilitará el acceso rápido a la información, mejorará la gestión documental y permitirá una búsqueda más eficiente, transformando así mi actual solución de archivo en un sistema integrado y digitalizado.
+
+### Planificación y Enfoque
+- **Selección de la Base de Datos**: Estoy evaluando opciones entre bases de datos SQL y NoSQL, considerando factores como escalabilidad, seguridad y facilidad de mantenimiento.
+- **Seguridad de Datos**: La seguridad y privacidad de los datos serán primordiales. Implementaré medidas para proteger la información y cumplir con las normativas de privacidad de datos relevantes.
+- **Acceso y Gestión de Datos**: La interfaz para acceder y manipular los datos almacenados será diseñada pensando en la facilidad de uso y eficiencia.
+
+
