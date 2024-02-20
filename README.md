@@ -67,6 +67,7 @@ Pillow es una librería de procesamiento de imágenes en Python. En este script,
 Es una librería ampliamente utilizada y mantenida con un conjunto rico de funcionalidades para el procesamiento de imágenes, lo que la hace ideal para este proyecto.
 
 - #### Pytesseract:
+  
 Pytesseract es un envoltorio de Python para Tesseract OCR. Permite la integración de la capacidad de OCR de Tesseract en aplicaciones Python, convirtiendo imágenes en texto.
 Tesseract es uno de los motores de OCR más precisos y populares disponibles, y pytesseract facilita su uso en aplicaciones Python
 ------------
